@@ -1,211 +1,210 @@
+// import 'package:animations/animations.dart';
+// import 'package:flutter/material.dart';
+
+// /// The demo page for [FadeThroughTransition].
+// class FadeThroughTransitionDemo extends StatefulWidget {
+//   /// Creates the demo page for [FadeThroughTransition].
+//   const FadeThroughTransitionDemo({super.key});
+
+//   @override
+//   State<FadeThroughTransitionDemo> createState() =>
+//       _FadeThroughTransitionDemoState();
+// }
+
+// class _FadeThroughTransitionDemoState extends State<FadeThroughTransitionDemo> {
+//   int pageIndex = 0;
+
+//   List<Widget> pageList = <Widget>[
+//     _FirstPage(),
+//     _SecondPage(),
+//     _ThirdPage(),
+//   ];
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(title: const Text('Fade through')),
+//       body: PageTransitionSwitcher(
+//         transitionBuilder: (
+//           Widget child,
+//           Animation<double> animation,
+//           Animation<double> secondaryAnimation,
+//         ) {
+//           return FadeThroughTransition(
+//             animation: animation,
+//             secondaryAnimation: secondaryAnimation,
+//             child: child,
+//           );
+//         },
+//         child: pageList[pageIndex],
+//       ),
+//       bottomNavigationBar: BottomNavigationBar(
+//         currentIndex: pageIndex,
+//         onTap: (int newValue) {
+//           setState(() {
+//             pageIndex = newValue;
+//           });
+//         },
+//         items: const <BottomNavigationBarItem>[
+//           BottomNavigationBarItem(
+//             icon: Icon(Icons.photo_library),
+//             label: 'Albums',
+//           ),
+//           BottomNavigationBarItem(
+//             icon: Icon(Icons.photo),
+//             label: 'Photos',
+//           ),
+//           BottomNavigationBarItem(
+//             icon: Icon(Icons.search),
+//             label: 'Search',
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+// }
+
+// class _ExampleCard extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Expanded(
+//       child: Card(
+//         child: Stack(
+//           children: <Widget>[
+//             Column(
+//               crossAxisAlignment: CrossAxisAlignment.stretch,
+//               children: <Widget>[
+//                 Expanded(
+//                   child: Container(
+//                     color: Colors.black26,
+//                     child: Padding(
+//                       padding: const EdgeInsets.all(30.0),
+//                       child: Ink.image(
+//                         image: const AssetImage('assets/placeholder_image.png'),
+//                       ),
+//                     ),
+//                   ),
+//                 ),
+//                 Padding(
+//                   padding: const EdgeInsets.all(8.0),
+//                   child: Column(
+//                     crossAxisAlignment: CrossAxisAlignment.start,
+//                     children: <Widget>[
+//                       Text(
+//                         '123 photos',
+//                         style: Theme.of(context).textTheme.bodyLarge,
+//                       ),
+//                       Text(
+//                         '123 photos',
+//                         style: Theme.of(context).textTheme.bodySmall,
+//                       ),
+//                     ],
+//                   ),
+//                 ),
+//               ],
+//             ),
+//             InkWell(
+//               splashColor: Colors.black38,
+//               onTap: () {},
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+// class _FirstPage extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Column(
+//       children: <Widget>[
+//         Expanded(
+//           child: Row(
+//             crossAxisAlignment: CrossAxisAlignment.stretch,
+//             children: <Widget>[
+//               _ExampleCard(),
+//               _ExampleCard(),
+//             ],
+//           ),
+//         ),
+//         Expanded(
+//           child: Row(
+//             crossAxisAlignment: CrossAxisAlignment.stretch,
+//             children: <Widget>[
+//               _ExampleCard(),
+//               _ExampleCard(),
+//             ],
+//           ),
+//         ),
+//         Expanded(
+//           child: Row(
+//             crossAxisAlignment: CrossAxisAlignment.stretch,
+//             children: <Widget>[
+//               _ExampleCard(),
+//               _ExampleCard(),
+//             ],
+//           ),
+//         ),
+//       ],
+//     );
+//   }
+// }
+
+// class _SecondPage extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Column(
+//       children: <Widget>[
+//         _ExampleCard(),
+//         _ExampleCard(),
+//       ],
+//     );
+//   }
+// }
+
+// class _ThirdPage extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return ListView.builder(
+//       itemBuilder: (BuildContext context, int index) {
+//         return ListTile(
+//           leading: Image.asset(
+//             'assets/avatar_logo.png',
+//             width: 40,
+//           ),
+//           title: Text('List item ${index + 1}'),
+//           subtitle: const Text('Secondary text'),
+//         );
+//       },
+//       itemCount: 10,
+//     );
+//   }
+// }
+
+
+
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:school_leadership_skills/pages/home_page.dart';
 
-void main() => (runApp(MyApp()));
+void main() {
+  runApp(const App());
+}
 
-class MyApp extends StatelessWidget {
+class App extends StatelessWidget {
+  const App({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        backgroundColor: const Color.fromARGB(255, 245, 245, 250),
-        appBar: AppBar(
-          title: Text(
-            "Уровень",
-            style: TextStyle(
-              color: Colors.black,
-              fontWeight: FontWeight.w600,
-              fontSize: 24,
-            ),
-          ),
-          backgroundColor: Color.fromARGB(255, 245, 245, 250),
-          centerTitle: true,
-          actions: [
-            IconButton(
-              icon: const Icon(Icons.notifications),
-              iconSize: 36,
-              onPressed: null,
-            ),
-          ],
-        ),
-        body: Container(
-          padding: EdgeInsets.only(top: 40),
-          alignment: Alignment.center,
-          child: Column(children: [
-            SizedBox(
-              child: Image.asset("assets/images/avatar.png"),
-              width: 100,
-              height: 100,
-            ),
-            SizedBox(
-              height: 24,
-            ),
-            Text(
-              "Анастасия",
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-            SizedBox(
-              height: 16,
-            ),
-            CurrentPointsWidget(),
-            SizedBox(
-              height: 20,
-            ),
-            Padding(
-              padding: EdgeInsets.only(
-                left: 20,
-                right: 20,
-              ),
-              child: CurrentProgressWidget(),
-            )
-          ]),
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        fontFamily: 'SFProText',
+        colorScheme: ColorScheme.fromSwatch().copyWith(
+          secondary: const Color.fromARGB(255, 245, 245, 250),
         ),
       ),
+      home: const HomePage(),
     );
-  }
-}
-
-class CurrentPointsWidget extends StatefulWidget {
-  @override
-  _CurrentPointsWidgetState createState() => _CurrentPointsWidgetState();
-}
-
-class _CurrentPointsWidgetState extends State<CurrentPointsWidget> {
-  late int _currentPoints;
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    _currentPoints = 110;
-    super.initState();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(
-          "Баллы:",
-          style: TextStyle(
-            fontSize: 16,
-            color: Color.fromARGB(255, 133, 133, 151),
-            fontWeight: FontWeight.w400,
-          ),
-        ),
-        SizedBox(
-          width: 10,
-        ),
-        Text(
-          "${_currentPoints}",
-          style: TextStyle(
-            fontSize: 16,
-            color: Color.fromARGB(255, 28, 8, 42),
-            fontWeight: FontWeight.w600,
-          ),
-        ),
-        SizedBox(
-          width: 6,
-        ),
-        SizedBox(
-          child: SvgPicture.asset("assets/icons/points.svg"),
-          width: 20,
-          height: 20,
-        ),
-      ],
-    );
-  }
-}
-
-class CurrentProgressWidget extends StatefulWidget {
-  @override
-  _CurrentProgressWidgetState createState() => _CurrentProgressWidgetState();
-}
-
-class _CurrentProgressWidgetState extends State<CurrentProgressWidget> {
-  late double _currentProgress;
-  late String _currentLevelTitle;
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    _currentProgress = 80;
-    _currentLevelTitle = "Маг";
-    super.initState();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-        padding: EdgeInsets.only(
-          left: 16,
-          right: 16,
-        ),
-        height: 100,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(26.5),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            Stack(
-              alignment: Alignment.center,
-              children: [
-                Container(
-                  decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 66, 81, 211),
-                    shape: BoxShape.circle,
-                  ),
-                  width: 54,
-                  height: 54,
-                ),
-                Text(
-                  "${_currentProgress.round()}%",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w600,
-                    fontSize: 14,
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(
-              width: 16,
-            ),
-            Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "Ваш уровень: ${_currentLevelTitle}",
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 16,
-                  ),
-                  LinearProgressIndicator(
-                    value: _currentProgress,
-                    borderRadius: BorderRadius.circular(2),
-                  ),
-                ],
-              ),
-            ),
-            IconButton(
-              onPressed: null,
-              icon: Icon(
-                Icons.keyboard_arrow_down_rounded,
-                color: const Color.fromARGB(255, 174, 182, 194),
-              ),
-              iconSize: 32,
-            )
-          ],
-        ));
   }
 }
