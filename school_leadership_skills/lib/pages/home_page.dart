@@ -30,9 +30,6 @@ class HomePage extends StatelessWidget {
             onPressed: null,
           ),
         ],
-        // bottom: TabBarView(children: [
-
-        // ]),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(
@@ -70,7 +67,7 @@ class HomePage extends StatelessWidget {
               const SizedBox(
                 height: 40,
               ),
-              SizedBox(
+              const SizedBox(
                 child: AchievementsWidget(),
               )
             ]),

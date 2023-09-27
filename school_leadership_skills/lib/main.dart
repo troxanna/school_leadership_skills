@@ -1,6 +1,7 @@
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:school_leadership_skills/pages/home_page.dart';
+import 'package:school_leadership_skills/pages/main_page.dart';
 
 
 void main() {
@@ -20,8 +21,7 @@ class App extends StatelessWidget {
           secondary: const Color.fromARGB(255, 245, 245, 250),
         ),
       ),
-      home: const HomePage(),
+      home: const MainPage(),
     );
   }
 }
-

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:school_leadership_skills/pages/achievements_list_page.dart';
+
 
 // ignore: must_be_immutable
 class AchievementsWidget extends StatefulWidget {
@@ -44,7 +46,11 @@ class _AchievementsWidgetState extends State<AchievementsWidget> {
               ),
             ),
             TextButton(
-              onPressed: null,
+              onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => const AchievementsListPage(),
+              ));
+            },
               child: Row(
                 children: [
                   Text(
