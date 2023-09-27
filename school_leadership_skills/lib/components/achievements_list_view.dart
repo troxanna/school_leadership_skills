@@ -106,3 +106,4 @@ class _AchievementsWidgetState extends State<AchievementsWidget> {
     );
   }
 }
+
